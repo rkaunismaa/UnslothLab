@@ -6,3 +6,6 @@ results/results.json
 .superpowers/
 .claude/
 unsloth/
+
+ClaudeResume.txt
+unsloth_compiled_cache/
