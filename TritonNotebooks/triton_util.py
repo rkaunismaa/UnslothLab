@@ -44,7 +44,7 @@ assert cdiv(10,2)==5
 assert cdiv(10,3)==4
 
 @triton.jit
-def get_1d_offest(size, n_prev_chunks): return n_prev_chunks * size + tl.arange(0, size)
+def get_1d_offest(size: tl.constexpr, n_prev_chunks): return n_prev_chunks * size + tl.arange(0, size)
 
 @triton.jit
 def get_2d_offset(offs_0, offs_1, stride_0, stride_1=1):  return tl.expand_dims(offs_0, 1)*stride_0 + tl.expand_dims(offs_1, 0)*stride_1

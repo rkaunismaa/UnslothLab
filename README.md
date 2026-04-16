@@ -54,6 +54,7 @@ uv run jupyter lab
 
 ```
 notebooks/          # The 12 notebooks
+TritonNotebooks/    # Standalone Triton reference notebooks (no Unsloth dependency)
 utils/
   benchmark.py      # Shared timing harness — writes to results/results.json
   plotting.py       # Bar charts and timeline for benchmark results
