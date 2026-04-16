@@ -1,0 +1,1 @@
+This folder will contain various Triton notebooks curated from different sources. They will not require anything from Unsloth.
