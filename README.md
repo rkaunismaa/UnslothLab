@@ -13,10 +13,10 @@ A 12-notebook series that teaches how [Unsloth](https://github.com/unslothai/uns
 | [NB01](notebooks/01-the-speedup-is-real.ipynb) | The Speedup Is Real | HF vs Unsloth end-to-end benchmark (north star) |
 | [NB02](notebooks/02-gpu-memory-hierarchy.ipynb) | GPU Memory Hierarchy | HBM bandwidth, roofline model, naive vs fused softmax |
 | [NB03](notebooks/03-triton-fundamentals.ipynb) | Triton Fundamentals | Element-wise kernels, autotuning, parallel reductions |
-| NB04 | Flash Attention from Scratch | Online softmax, tiling, forward Triton kernel |
-| NB05 | RoPE & Embedding Kernels | Fused rotary embeddings, bandwidth analysis |
-| NB06 | Cross-Entropy & Logits | Chunked cross-entropy, large vocab memory |
-| NB07 | LoRA Under the Hood | PEFT hooks vs fused forward pass |
+| [NB04](notebooks/04-flash-attention.ipynb) | Flash Attention from Scratch | Online softmax, tiling, forward Triton kernel |
+| [NB05](notebooks/05-rope-embedding-kernels.ipynb) | RoPE & Embedding Kernels | Fused rotary embeddings, 3.4× speedup, 33 MB HBM saved |
+| [NB06](notebooks/06-cross-entropy-logits.ipynb) | Cross-Entropy & Logits | Chunked cross-entropy, 8× fewer bytes at once (128k vocab) |
+| [NB07](notebooks/07-lora-under-the-hood.ipynb) | LoRA Under the Hood | LoRA from scratch, hook-based vs fused forward pass |
 | NB08 | Quantization & Dequant Kernels | NF4, double quantization, dequant kernels |
 | NB09 | Monkey-Patching System | Patching registry, writing a custom patch |
 | NB10 | The Training Loop | torch.profiler, gradient checkpointing |
@@ -44,9 +44,9 @@ uv pip install -e unsloth/
 uv run jupyter lab
 ```
 
-> **HuggingFace token:** NB01, NB07, and NB10 load `meta-llama/Meta-Llama-3-8B`.
+> **HuggingFace token:** NB01 and NB10 load `meta-llama/Meta-Llama-3-8B`.
 > Run `huggingface-cli login` before executing those notebooks.
-> NB02–NB06 and NB08–NB09 use synthetic tensors only.
+> NB02–NB09 use synthetic tensors only.
 
 ---
 
