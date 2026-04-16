@@ -31,10 +31,12 @@ def measure(
     throughput_fn: Optional[Callable[[], float]] = None,
 ) -> BenchmarkResult:
     """Benchmark fn and persist results to results.json."""
-    for _ in range(n_warmup):
-        fn()
-    if torch.cuda.is_available():
-        torch.cuda.synchronize()
+    try:
+        for _ in range(n_warmup):
+            fn()
+    finally:
+        if torch.cuda.is_available():
+            torch.cuda.synchronize()
 
     torch.cuda.reset_peak_memory_stats() if torch.cuda.is_available() else None
     t0 = time.perf_counter()
@@ -68,11 +70,15 @@ def compare(
     experiment: str,
     n_warmup: int = 5,
     n_repeat: int = 20,
+    throughput_fns: Optional[dict[str, Callable[[], float]]] = None,
 ) -> dict[str, BenchmarkResult]:
     """Benchmark multiple functions under the same experiment label."""
     return {
-        label: measure(fn, label=label, notebook=notebook, experiment=experiment,
-                       n_warmup=n_warmup, n_repeat=n_repeat)
+        label: measure(
+            fn, label=label, notebook=notebook, experiment=experiment,
+            n_warmup=n_warmup, n_repeat=n_repeat,
+            throughput_fn=(throughput_fns or {}).get(label),
+        )
         for label, fn in fns.items()
     }
 
@@ -99,4 +105,7 @@ def _save(result: BenchmarkResult) -> None:
 def _load_all() -> list[dict]:
     if not RESULTS_PATH.exists():
         return []
-    return json.loads(RESULTS_PATH.read_text())
+    try:
+        return json.loads(RESULTS_PATH.read_text())
+    except json.JSONDecodeError:
+        return []

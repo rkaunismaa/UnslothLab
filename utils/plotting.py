@@ -35,8 +35,9 @@ def bar_compare(
     if lower_is_better and len(values) >= 2:
         best_val = min(values)
         worst_val = max(values)
-        speedup = worst_val / best_val
-        ax.set_xlabel(f"↓ lower is better  |  speedup: {speedup:.2f}×", fontsize=9)
+        if best_val > 0:
+            speedup = worst_val / best_val
+            ax.set_xlabel(f"↓ lower is better  |  speedup: {speedup:.2f}×", fontsize=9)
 
     plt.tight_layout()
     return fig

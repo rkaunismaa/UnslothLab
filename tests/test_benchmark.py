@@ -51,7 +51,7 @@ def test_load_results_filters_by_notebook():
     assert len(results) == 1
     assert results[0]["notebook"] == "nb01"
 
-def test_compare_returns_speedup():
+def test_compare_returns_dict_of_results():
     with patch("utils.benchmark.RESULTS_PATH", TEST_RESULTS):
         from utils.benchmark import compare
         r = compare(
