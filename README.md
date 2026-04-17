@@ -21,7 +21,7 @@ A 12-notebook series that teaches how [Unsloth](https://github.com/unslothai/uns
 | [NB09](notebooks/09-monkey-patching-system.ipynb) | Monkey-Patching System | setattr mechanics, PatchRegistry, FastLlamaModel.pre_patch |
 | [NB10](notebooks/10-training-loop.ipynb) | The Training Loop | torch.profiler, GC saves ~40% VRAM, Unsloth custom autograd.Function |
 | [NB11](notebooks/11-full-ablation-study.ipynb) | Full Ablation Study | Speedup chart across all notebooks: attention 3.2×, RoPE 3.4×, GC 1.2× |
-| NB12 | Contributing: Add a New Model | Codebase tour, patch template, contribution workflow |
+| [NB12](notebooks/12-contributing-add-a-new-model.ipynb) | Contributing: Add a New Model | Codebase tour, patch template, 3-file registration, PR checklist |
 
 ---
 
