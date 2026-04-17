@@ -19,7 +19,7 @@ A 12-notebook series that teaches how [Unsloth](https://github.com/unslothai/uns
 | [NB07](notebooks/07-lora-under-the-hood.ipynb) | LoRA Under the Hood | LoRA from scratch, hook-based vs fused forward pass |
 | [NB08](notebooks/08-quantization-dequant-kernels.ipynb) | Quantization & Dequant Kernels | NF4 from scratch, 3.6× VRAM reduction, Triton dequant kernel |
 | [NB09](notebooks/09-monkey-patching-system.ipynb) | Monkey-Patching System | setattr mechanics, PatchRegistry, FastLlamaModel.pre_patch |
-| NB10 | The Training Loop | torch.profiler, gradient checkpointing |
+| [NB10](notebooks/10-training-loop.ipynb) | The Training Loop | torch.profiler, GC saves ~40% VRAM, Unsloth custom autograd.Function |
 | NB11 | Full Ablation Study | Reads accumulated results — how much does each optimization contribute? |
 | NB12 | Contributing: Add a New Model | Codebase tour, patch template, contribution workflow |
 
