@@ -17,7 +17,7 @@ A 12-notebook series that teaches how [Unsloth](https://github.com/unslothai/uns
 | [NB05](notebooks/05-rope-embedding-kernels.ipynb) | RoPE & Embedding Kernels | Fused rotary embeddings, 3.4× speedup, 33 MB HBM saved |
 | [NB06](notebooks/06-cross-entropy-logits.ipynb) | Cross-Entropy & Logits | Chunked cross-entropy, 8× fewer bytes at once (128k vocab) |
 | [NB07](notebooks/07-lora-under-the-hood.ipynb) | LoRA Under the Hood | LoRA from scratch, hook-based vs fused forward pass |
-| NB08 | Quantization & Dequant Kernels | NF4, double quantization, dequant kernels |
+| [NB08](notebooks/08-quantization-dequant-kernels.ipynb) | Quantization & Dequant Kernels | NF4 from scratch, 3.6× VRAM reduction, Triton dequant kernel |
 | NB09 | Monkey-Patching System | Patching registry, writing a custom patch |
 | NB10 | The Training Loop | torch.profiler, gradient checkpointing |
 | NB11 | Full Ablation Study | Reads accumulated results — how much does each optimization contribute? |
